@@ -1,0 +1,28 @@
+{
+  "name": "K-POP KIDS — Guia Interativo",
+  "short_name": "K-Pop Kids",
+  "description": "O guia mais divertido do K-Pop! Aprenda, jogue e vire um expert em K-pop!",
+  "start_url": "./kpop_kids_interativo.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f0720",
+  "theme_color": "#0f0720",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "categories": ["education", "entertainment", "games"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
