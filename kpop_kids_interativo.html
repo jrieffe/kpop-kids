@@ -550,7 +550,7 @@ const TIMELINE = [
     text:'Stray Kids, ATEEZ, TXT, ITZY, BLACKPINK e outros dominam as redes. TikTok transforma o K-pop em cultura global. NewJeans, IVE e LE SSERAFIM chegam com estética nova e conquistam milhões de fãs! ✨' },
   { year:'2023+', tag:'5ª Geração', emoji:'🔮',
     title:'5ª Geração — O Futuro é Agora!',
-    text:'ZEROBASEONE, RIIZE, ILLIT, BOYNEXTDOOR e KATSEYE representam a nova era! A estética Y2K volta com força, e grupos de todo o mundo participam do K-pop. Uma brasileira, Daniela, até está no KATSEYE! 🇧🇷' },
+    text:'ZEROBASEONE, RIIZE, ILLIT, BOYNEXTDOOR e KATSEYE representam a nova era! A estética Y2K volta com força, e grupos de todo o mundo participam do K-pop. O KATSEYE reúne garotas de 5 países: Filipinas, Coreia do Sul, Suíça e EUA! 🌍' },
 ];
 
 const GENS = [
@@ -627,7 +627,15 @@ const GENS = [
       { name:'RIIZE',        type:'boy', members:'7 membros', debut:'2023', hit:'Talk Saxy / Get a Guitar', label:'SM',             color:'bg-orange-500', desc:'Novo grupo da SM! Anton é filho do músico Jon Batiste. Concept fresh, jovem e descontraído.' },
       { name:'BOYNEXTDOOR',  type:'boy', members:'6 membros', debut:'2023', hit:'One and Only / Serenade',  label:'KOZ/HYBE',       color:'bg-yellow-600', desc:'Produzido por Zico! Concept de garotos comuns do bairro. Sons indie e muito autênticos.' },
       { name:'ILLIT',        type:'girl',members:'5 membros', debut:'2024', hit:'Magnetic',                  label:'HYBE/Belift',    color:'bg-pink-400',   desc:'"Magnetic" virou hit GLOBAL no TikTok! Estética dreamy e fofa. Yunah, Minju, Moka, Wonhee e Iroha.' },
-      { name:'KATSEYE',      type:'girl',members:'6 membros', debut:'2024', hit:'Touch / Debut',             label:'HYBE×Geffen',    color:'bg-gradient-to-r from-yellow-400 to-orange-500',   desc:'Grupo GLOBAL formado por audição mundial! Daniela é do BRASIL! 🇧🇷 Parceria Coreia + América.' },
+      { name:'KATSEYE',      type:'girl',members:'6 membros', debut:'2024', hit:'Touch / Debut',             label:'HYBE×Geffen',    color:'bg-gradient-to-r from-yellow-400 to-orange-500',   desc:'Grupo GLOBAL formado por audição mundial! 6 garotas de 5 países diferentes: Sophia (Filipinas), Yoonchae (Coreia), Manon (Suíça), Daniela, Lara e Megan (EUA). Parceria HYBE × Geffen Records! 🌍',
+        memberList:[
+          { name:'Sophia Laforteza',     origin:'Manila, Filipinas',              note:'Líder do grupo' },
+          { name:'Yoonchae Jeung',       origin:'Seul, Coreia do Sul',            note:'Maknae (a mais jovem)' },
+          { name:'Manon Bannerman',      origin:'Lucerna, Suíça',                 note:'Ascendência suíço-italiana e ganense' },
+          { name:'Daniela Avanzini',     origin:'Atlanta, Geórgia (EUA)',         note:'Ascendência cubana e venezuelana' },
+          { name:'Lara Rajagopalan',     origin:'Los Angeles, Califórnia (EUA)',  note:'Ascendência indiana' },
+          { name:'Megan Skiendiel',      origin:'Honolulu, Havaí (EUA)',          note:'Ascendência singapurense-chinesa e sueco-americana' },
+        ]},
       { name:'VCHA',         type:'girl',members:'6 membros', debut:'2024', hit:'Girls of the Year',         label:'JYP×Republic',   color:'bg-purple-400', desc:'Outra parceria global JYP com a Republic Records! Formado por audição nos EUA. O futuro K-pop é global!' },
     ]
   },
@@ -701,7 +709,7 @@ const QUIZ = [
   { q:'Qual música do BTS chegou pela 1ª vez ao #1 na Billboard?',  emoji:'🏆', opts:['DNA','Fake Love','Dynamite','Boy With Luv'], correct:2, xp:20, fact:'"Dynamite" (2020) foi 1ª música inteiramente em inglês do BTS — #1 na Billboard!' },
   { q:'De qual país é a Lisa, do BLACKPINK?',                       emoji:'🌏', opts:['Coreia','China','Tailândia','Japão'],    correct:2, xp:15, fact:'Lisa Manobal é da Tailândia! Conhecida mundialmente pelas habilidades de dança.' },
   { q:'O que significa "Hallyu" (한류)?',                            emoji:'🌊', opts:['Dança Coreana','Onda Coreana','Música Coreana','Pop Asiático'], correct:1, xp:15, fact:'"Hallyu" significa "Onda Coreana" — o impacto global da cultura da Coreia do Sul!' },
-  { q:'Qual grupo tem uma integrante brasileira chamada Daniela?',   emoji:'🇧🇷', opts:['aespa','ITZY','KATSEYE','ILLIT'],       correct:2, xp:20, fact:'Daniela é do Brasil e faz parte do KATSEYE (HYBE × Geffen Records)!' },
+  { q:'Qual grupo global reúne membros de 5 países, incluindo Filipinas, Suíça e Coreia do Sul?', emoji:'🌍', opts:['aespa','ITZY','KATSEYE','ILLIT'], correct:2, xp:20, fact:'KATSEYE tem 6 membros de 5 países: Sophia (Filipinas), Yoonchae (Coreia), Manon (Suíça), Daniela, Lara e Megan (EUA)!' },
 ];
 
 const MEM_PAIRS = [
@@ -981,6 +989,26 @@ function openModal(name, genId) {
       <div class="text-xs font-black text-pink-400 uppercase tracking-widest mb-3">📖 Sobre o Grupo</div>
       <p class="text-purple-100 leading-relaxed">${band.desc}</p>
     </div>
+
+    ${band.memberList ? `
+    <div class="glass rounded-2xl p-5 border border-purple-500/20 mb-4">
+      <div class="text-xs font-black text-pink-400 uppercase tracking-widest mb-3">👥 Integrantes</div>
+      <div class="flex flex-col gap-2">
+        ${band.memberList.map(m => `
+          <div class="flex items-start gap-3 py-2 border-b border-purple-500/10 last:border-0">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-sm font-black text-white flex-shrink-0">
+              ${m.name.charAt(0)}
+            </div>
+            <div>
+              <div class="font-black text-white text-sm">${m.name}</div>
+              <div class="text-xs text-purple-300">📍 ${m.origin}</div>
+              <div class="text-xs text-pink-300 mt-0.5">${m.note}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    ` : ''}
 
     <div class="glass rounded-2xl p-5 border border-purple-500/20">
       <div class="text-xs font-black text-pink-400 uppercase tracking-widest mb-2">🎵 Hit Principal</div>
